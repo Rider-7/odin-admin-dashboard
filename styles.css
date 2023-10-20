@@ -13,15 +13,46 @@
     min-height: 100vh;
 }
 
+/* side-bar */
+.icon {
+    width: 32px;
+}
+
 .side-bar {
     grid-column-start: 1;
     grid-row: 1/-1;
 
     display: grid;
-    grid-template-rows: 2fr 5fr 3fr 3fr;
+    grid-template-rows: 1fr 4fr 2fr 3fr;
+    gap: 32px;
+
 
     background-color: yellow;
 }
+
+/* common grid layout */
+.side-bar > div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    gap: 4px;
+    padding-left: 8px;
+}
+
+    /* logo */
+    .logo {
+        grid-template-rows: repeat(1, 1fr);
+    }
+
+    /* user-links */
+    .user-links {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    /* support-links */
+    .support-links {
+        grid-template-rows: repeat(3, 1fr);
+    }
 
 .main {
     display: grid;
