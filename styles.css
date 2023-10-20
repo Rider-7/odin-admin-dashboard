@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
+
+    background-color: brown;
+    gap: 8px;
+    min-height: 100vh;
+}
+
+.side-bar {
+    grid-column-start: 1;
+    grid-row: 1/-1;
+
+    display: grid;
+    grid-template-rows: 2fr 5fr 3fr 3fr;
+
+    background-color: yellow;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    background-color: yellowgreen;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 10fr 1fr;
+
+    background-color: aquamarine;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    grid-template-rows: 1fr repeat(3, 4fr);
+}
+
+.others {
+    display: grid;
+    grid-template-columns:  4fr;
+    grid-template-rows: 1fr 2fr 1fr 2fr;
+}
+
