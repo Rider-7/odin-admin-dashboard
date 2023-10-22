@@ -56,6 +56,10 @@ table {
     --primary-colour: #3F72AF;
     --accent-colour: #F9F7F7;
     --background-colour: #DBE2EF;
+
+    --secondary-text-colour: #777b81;
+    --card-stripe-colour: #f5d061;
+    --shadow-colour: #b6bace;
 }
 
 .container {
@@ -83,6 +87,10 @@ table {
     background-color: var(--primary-colour);
     color: var(--accent-colour);
     fill: var(--accent-colour);
+
+    position: relative;
+    z-index: 1;
+    box-shadow: 2px 0px 4px 0px var(--shadow-colour);
 }
 
 .side-bar-segment {
@@ -103,7 +111,6 @@ table {
         grid-template-rows: repeat(1, 1fr);
     }
 
-        /* logo */
         .logo-icon {
             width: 42px;
         }
@@ -121,7 +128,6 @@ table {
         grid-template-rows: repeat(3, 1fr);
     }
 
-        /* side-bar links */
         .link-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -133,9 +139,9 @@ table {
     grid-template-rows: 1fr 1fr;
 
     background-color: var(--accent-colour);
-    box-shadow: 0px 2px 4px 0px black;
-    clip-path: inset(0px 0px -10px 0px);
-    /* margin-bottom: 10px; */
+    position: relative;
+    z-index: 0;
+    box-shadow: 0px 2px 4px 0px var(--shadow-colour);
 }
 
 .top-bar-segment {
@@ -148,113 +154,126 @@ table {
 }
 
     /* top */
-        .search-bar {
-            display: grid;
-            grid-template-columns: 1fr 12fr;
-            place-items: center;
-            gap: 16px;
+    .search-bar {
+        display: grid;
+        grid-template-columns: 1fr 16fr;
+        place-items: center;
+        gap: 16px;
+    }
+
+        .search-field {
+            width: max(150px, 100%);
+            height: 24px;
+            border-radius: 20px;
+            border-style: none;
+            background-color: var(--background-colour);
         }
 
-            .search-field {
-                width: max(150px, 100%);
-                height: 24px;
-                border-radius: 20px;
-                border-style: none;
-                background-color: var(--background-colour);
-            }
-
-            .search-button {
-                border-style: none;
-                background-color: transparent;
-                padding-top: 6px;
-            }
-
-        .user-bar {
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-            place-items: center;
-            gap: 16px;
+        .search-button {
+            border-style: none;
+            background-color: transparent;
+            padding-top: 6px;
         }
 
-            .user-bar-username {
-                font-size: 1rem;
-                font-weight: 600;
-            }
+    .user-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        place-items: center;
+        gap: 16px;
+    }
 
-            .user-bar > .profile-icon {
-                width: 36px;
+        .user-bar-username {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .user-bar > .profile-icon {
+            width: 36px;
             }
 
     /* bottom */
-        .user-greeting {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            place-items: center;
-            gap: 16px;
-            text-wrap: nowrap;
+    .user-greeting {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        place-items: center;
+        gap: 16px;
+        text-wrap: nowrap;
+    }
+
+        .user-greeting > .profile-icon {
+            width: 52px;
         }
 
-            .user-greeting > .profile-icon {
-                width: 52px;
-            }
-
-            .user-greeting > div {
-                width: 100%;
-                font-weight: 600;
-            }
-
-                .user-greeting-greet {
-                    font-size: 0.8rem;
-
-                }
-
-                .user-greeting-username {
-                    font-size: 1.25rem;
-                }
-
-        .user-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            place-items: center;
-            gap: 16px;
+        .user-greeting > div {
+            width: 100%;
+            font-weight: 600;
         }
 
-            .user-buttons > button {
-                border-width: 0px;
-                border-radius: 20px;
-                padding: 6px;
-                width: 80px;
-                font-size: 0.7rem;
-                font-weight: 600;
-                background-color: var(--primary-colour);
-                color: var(--accent-colour);
+            .user-greeting-greet {
+                font-size: 0.8rem;
+
             }
 
+            .user-greeting-username {
+                font-size: 1.25rem;
+            }
 
+    .user-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+        gap: 16px;
+    }
+
+        .user-buttons > button {
+            border-width: 0px;
+            border-radius: 20px;
+            padding: 6px;
+            width: 80px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background-color: var(--primary-colour);
+            color: var(--accent-colour);
+        }
+
+/* ------ content ------ */
 .content {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 10fr 1fr;
-}
-
-/* main-content */
-.main-content {
-    display: grid;
-    grid-template-columns: repeat(2, 4fr);
-    grid-template-rows: 30px repeat(3, 4fr);
+    margin: 10px;
 }
 
     .subtitle {
+        display: flex;
         grid-column: 1/-1;
+        font-size: 1.25rem;
+        font-weight: 600;
+        width: 100%;
+        justify-content: left;
+        align-items:end;
+        margin-left: 10px;
     }
+
+    .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, 4fr);
+        grid-template-rows: 50px repeat(3, 4fr);
+    }
+
+.trend {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
 
 .others {
     display: grid;
     grid-template-columns:  4fr;
-    grid-template-rows: 30px 5fr 30px 5fr;
+    grid-template-rows: 50px 5fr 30px 5fr;
 }
 
-/* card layouts */
+/* ---- general card layout ---- */
 .card {
     display: grid;
     grid-template-columns: 20px 1fr;
@@ -262,15 +281,15 @@ table {
     box-sizing: border-box;
     margin: 10px;
 
-    background-color: white;
+    background-color: var(--accent-colour);
     border-radius: 20px;
-    box-shadow: 0px 2px 4px black;
+    box-shadow: 0px 2px 4px var(--shadow-colour)
 }
 
     .card-stripe {
         grid-row: 1;
 
-        background-color: yellow;
+        background-color: var(--card-stripe-colour);
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
@@ -279,6 +298,9 @@ table {
         margin: 20px;
     }
 
+
+
+/* announcement card layout */
 .announcement-layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -289,6 +311,7 @@ table {
         grid-template-rows: 1fr 1fr 1fr;
     }
 
+/* trending card layout */
 .trending-layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -299,8 +322,23 @@ table {
         grid-template-rows: 1fr 1fr 1fr;
     }
 
-/* content */
-.trend {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-}
+/* ----- project card ----- */
+    .project {
+        height: 100%;
+    }
+    .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .project-text {
+        color: var(--secondary-text-colour);
+    }
+
+    .project-buttons {
+        display: flex;
+        margin-top: 20px;
+        justify-content: end;
+        gap: 8px;
+        /* height: 100%; */
+    }
