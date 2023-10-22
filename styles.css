@@ -52,21 +52,26 @@ table {
 
 /* ----------------- Page Styling ------------------- */
 
+:root {
+    --primary-colour: #3F72AF;
+    --accent-colour: #F9F7F7;
+    --background-colour: #DBE2EF;
+}
+
 .container {
     display: grid;
-    grid-template-columns: minmax(210px, 240px) 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: minmax(210px, 240px) 1fr;
+    grid-template-rows: 120px 1fr;
 
-    background-color: brown;
+    background-color: var(--background-colour);
     min-height: 100vh;
 }
 
 .icon {
     width: 24px;
-
 }
 
-/* side-bar */
+/* ---------- side-bar ---------- */
 .side-bar {
     grid-column-start: 1;
     grid-row: 1/-1;
@@ -75,9 +80,9 @@ table {
     grid-template-rows: 48px 288px 144px 1fr;
     gap: 32px;
 
-    background-color: #22ff8db3;
-    color: #ffffff;
-    fill:#ffffff;
+    background-color: var(--primary-colour);
+    color: var(--accent-colour);
+    fill: var(--accent-colour);
 }
 
 .side-bar-segment {
@@ -98,6 +103,16 @@ table {
         grid-template-rows: repeat(1, 1fr);
     }
 
+        /* logo */
+        .logo-icon {
+            width: 42px;
+        }
+        
+        .logo-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
     .user-links {
         grid-template-rows: repeat(6, 1fr);
     }
@@ -106,35 +121,24 @@ table {
         grid-template-rows: repeat(3, 1fr);
     }
 
-    /* logo */
-    .logo-icon {
-        width: 42px;
-    }
-    
-    .logo-title {
-        font-size: 28px;
-        font-weight: 600;
-    }
+        /* side-bar links */
+        .link-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
 
-    /* side-bar links */
-    .link-title {
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-
-
-
-
-/* top-bar */
+/* ---------- top-bar ---------- */
 .top-bar {
     display: grid;
     grid-template-rows: 1fr 1fr;
 
-    background-color: yellowgreen;
+    background-color: var(--accent-colour);
+    box-shadow: 0px 2px 4px 0px black;
+    clip-path: inset(0px 0px -10px 0px);
+    /* margin-bottom: 10px; */
 }
 
-.top-bar > div {
+.top-bar-segment {
     margin-inline: 40px;
     display: flex;
     justify-content:space-between;
@@ -151,8 +155,18 @@ table {
             gap: 16px;
         }
 
-            .search-bar > input[type="text"] {
+            .search-field {
                 width: max(150px, 100%);
+                height: 24px;
+                border-radius: 20px;
+                border-style: none;
+                background-color: var(--background-colour);
+            }
+
+            .search-button {
+                border-style: none;
+                background-color: transparent;
+                padding-top: 6px;
             }
 
         .user-bar {
@@ -161,6 +175,15 @@ table {
             place-items: center;
             gap: 16px;
         }
+
+            .user-bar-username {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .user-bar > .profile-icon {
+                width: 36px;
+            }
 
     /* bottom */
         .user-greeting {
@@ -171,6 +194,24 @@ table {
             text-wrap: nowrap;
         }
 
+            .user-greeting > .profile-icon {
+                width: 52px;
+            }
+
+            .user-greeting > div {
+                width: 100%;
+                font-weight: 600;
+            }
+
+                .user-greeting-greet {
+                    font-size: 0.8rem;
+
+                }
+
+                .user-greeting-username {
+                    font-size: 1.25rem;
+                }
+
         .user-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -179,7 +220,14 @@ table {
         }
 
             .user-buttons > button {
-                margin: 4px;
+                border-width: 0px;
+                border-radius: 20px;
+                padding: 6px;
+                width: 80px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                background-color: var(--primary-colour);
+                color: var(--accent-colour);
             }
 
 
@@ -187,8 +235,6 @@ table {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 10fr 1fr;
-
-    background-color: aquamarine;
 }
 
 /* main-content */
