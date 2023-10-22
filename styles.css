@@ -133,7 +133,7 @@
     grid-template-rows: 30px 5fr 30px 5fr;
 }
 
-/* common card layout */
+/* card layouts */
 .card {
     display: grid;
     grid-template-columns: 20px 1fr;
@@ -158,22 +158,28 @@
         margin: 20px;
     }
 
-    .card-text {
-        font-size: 14px;
-    }
-
-
-.project {
-    display: grid;
-    grid-template-rows: 1fr 4fr 2fr;
-}
-
-.announcements {
+.announcement-layout {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-    .announcements > .card-content {
+    .announcement-layout > .card-content {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
     }
+
+.trending-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+    .trending-layout > .card-content {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+/* content */
+.trend {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
